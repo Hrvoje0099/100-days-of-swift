@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="978.39999999999998" y="138.98050974512745"/>
         </scene>
-        <!--Detaile View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="B0U-nx-tDS">
             <objects>
-                <viewController storyboardIdentifier="detaile" id="9S2-nO-nal" customClass="DetaileViewController" customModule="Challenge1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" id="9S2-nO-nal" customClass="DetailViewController" customModule="Challenge1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uyc-tP-zH4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

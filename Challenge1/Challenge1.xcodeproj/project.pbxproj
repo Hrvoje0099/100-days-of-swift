@@ -24,7 +24,7 @@
 		EED647C3222C4F6F006BD7C8 /* uk.png in Resources */ = {isa = PBXBuildFile; fileRef = EED6479F222C4F6F006BD7C8 /* uk.png */; };
 		EED647C4222C4F6F006BD7C8 /* russia.png in Resources */ = {isa = PBXBuildFile; fileRef = EED647A0222C4F6F006BD7C8 /* russia.png */; };
 		EED647C6222C4F6F006BD7C8 /* spain.png in Resources */ = {isa = PBXBuildFile; fileRef = EED647A2222C4F6F006BD7C8 /* spain.png */; };
-		EED647C8222C58E7006BD7C8 /* DetaileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED647C7222C58E7006BD7C8 /* DetaileViewController.swift */; };
+		EED647C8222C58E7006BD7C8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED647C7222C58E7006BD7C8 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,7 @@
 		EED6479F222C4F6F006BD7C8 /* uk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uk.png; sourceTree = "<group>"; };
 		EED647A0222C4F6F006BD7C8 /* russia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = russia.png; sourceTree = "<group>"; };
 		EED647A2222C4F6F006BD7C8 /* spain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spain.png; sourceTree = "<group>"; };
-		EED647C7222C58E7006BD7C8 /* DetaileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaileViewController.swift; sourceTree = "<group>"; };
+		EED647C7222C58E7006BD7C8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 			children = (
 				EED6476C222C4EB9006BD7C8 /* AppDelegate.swift */,
 				EED6476E222C4EB9006BD7C8 /* ViewController.swift */,
-				EED647C7222C58E7006BD7C8 /* DetaileViewController.swift */,
+				EED647C7222C58E7006BD7C8 /* DetailViewController.swift */,
 				EED64770222C4EB9006BD7C8 /* Main.storyboard */,
 				EED64773222C4EC8006BD7C8 /* Assets.xcassets */,
 				EED64775222C4EC8006BD7C8 /* LaunchScreen.storyboard */,
@@ -196,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EED6476F222C4EB9006BD7C8 /* ViewController.swift in Sources */,
-				EED647C8222C58E7006BD7C8 /* DetaileViewController.swift in Sources */,
+				EED647C8222C58E7006BD7C8 /* DetailViewController.swift in Sources */,
 				EED6476D222C4EB9006BD7C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
