@@ -20,7 +20,6 @@ class ViewController: UITableViewController {
         
         for item in items {
             if item.hasSuffix("png") {
-                //flags.append(String(item.split(separator: ".").first!).capitalized)
                 flags.append(item)
             }
         }
@@ -32,7 +31,7 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "picture", for: indexPath)
-        cell.textLabel?.text = flags[indexPath.row]
+        cell.textLabel?.text = (flags[indexPath.row].split(separator: ".").first!).capitalized
         return cell
     }
     
