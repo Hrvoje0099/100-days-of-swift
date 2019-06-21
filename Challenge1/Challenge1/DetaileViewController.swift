@@ -19,6 +19,9 @@ class DetaileViewController: UIViewController {
         if let flag = selectedFlag {
             imageView.image = UIImage(named: flag)
         }
+        
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
     }
 
 }
