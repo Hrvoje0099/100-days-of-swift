@@ -28,3 +28,8 @@ Hints:
 - Make sure your detail view controller has a property for the image name to load, as well as the UIImageView to load it into. The former should be modified from ViewController inside didSelectItemAt; the latter should be modified in the viewDidLoad() method of your detail view controller.
 
 Bonus tip: try setting the imageView property of the table view cell. Yes, they have one. And yes, it automatically places an image right there in the table view cell – it makes a great preview for every country.
+
+## Screenshots
+
+![screenshot1](screenshots/screen01.png)
+![screenshot2](screenshots/screen02.png)
