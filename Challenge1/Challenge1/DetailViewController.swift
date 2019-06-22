@@ -11,23 +11,24 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     
-    var selectedFlag: String?
+    var selectedImage: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let flag = selectedFlag {
-            imageView.image = UIImage(named: flag)
+        if let imageName = selectedImage {
+            imageView.image = UIImage(named: imageName)
             
-            setupNavigationBar(flag: flag)
+            setupNavigationBar(title: imageName)
         }
         
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    fileprivate func setupNavigationBar(flag: String) {
-        title = (flag.split(separator: ".").first!).uppercased()
+    fileprivate func setupNavigationBar(title imageName: String) {
+        let countryName = (imageName.split(separator: ".").first!).uppercased()
+        title = countryName
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
     }

@@ -12,7 +12,7 @@ class ViewController: UITableViewController {
     let cellIdentifier = "picture"
     let detailViewControllerIdentifier = "detailVC"
     
-    var flags = [String]()
+    var images = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,23 +20,23 @@ class ViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "FLAGS"
         
-        loadFlags()
+        loadImages()
     }
     
-    fileprivate func loadFlags() {
+    fileprivate func loadImages() {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
         
         for item in items {
             if item.hasSuffix("png") {
-                flags.append(item)
+                images.append(item)
             }
         }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return flags.count
+        return images.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,19 +55,21 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let flag = flags[indexPath.section]
+        let imageName = images[indexPath.section]
         
-        cell.imageView?.image = UIImage(named: flag)
+        cell.imageView?.image = UIImage(named: imageName)
         cell.imageView?.layer.borderWidth = 0.5
         cell.imageView?.layer.borderColor = UIColor.black.cgColor
-        cell.textLabel?.text = (flag.split(separator: ".").first!).capitalized
+        
+        let countryName = (imageName.split(separator: ".").first!).capitalized
+        cell.textLabel?.text = countryName
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: detailViewControllerIdentifier) as? DetailViewController {
-            vc.selectedFlag = flags[indexPath.section]
+            vc.selectedImage = images[indexPath.section]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
