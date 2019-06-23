@@ -12,6 +12,7 @@
 		EE2612BE22353B0B008CA1ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2612BC22353B0B008CA1ED /* Main.storyboard */; };
 		EE2612C022353B0E008CA1ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE2612BF22353B0E008CA1ED /* Assets.xcassets */; };
 		EE2612C322353B0E008CA1ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2612C122353B0E008CA1ED /* LaunchScreen.storyboard */; };
+		EECFC15022BFB4DB0040D4F9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECFC14F22BFB4DB0040D4F9 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EE2612BF22353B0E008CA1ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE2612C222353B0E008CA1ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE2612C422353B0E008CA1ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EECFC14F22BFB4DB0040D4F9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				EE2612B822353B0B008CA1ED /* AppDelegate.swift */,
 				EE2612BA22353B0B008CA1ED /* ViewController.swift */,
+				EECFC14F22BFB4DB0040D4F9 /* Item.swift */,
 				EE2612BC22353B0B008CA1ED /* Main.storyboard */,
 				EE2612BF22353B0E008CA1ED /* Assets.xcassets */,
 				EE2612C122353B0E008CA1ED /* LaunchScreen.storyboard */,
@@ -96,6 +99,7 @@
 				TargetAttributes = {
 					EE2612B422353B0B008CA1ED = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -136,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE2612BB22353B0B008CA1ED /* ViewController.swift in Sources */,
+				EECFC15022BFB4DB0040D4F9 /* Item.swift in Sources */,
 				EE2612B922353B0B008CA1ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,8 +296,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hrvojevukovic.Challenge2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -309,8 +314,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hrvojevukovic.Challenge2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
