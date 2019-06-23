@@ -28,3 +28,15 @@ let list = shoppingList.joined(separator: "\n")
 ```
 
 That will create a new list constant that is a regular string, with each shopping list item separated by “\n” – that’s Swift’s way of representing a new line.
+
+## Screenshots
+
+My bonus:
+- implemented swipe to delete an item
+- add "info" button
+- on cell added accessoryType ".checkmark" to mark when the item was bought
+- implemented save and load items with UserDefaults
+
+![screenshot1](screenshots/screen01.png)
+![screenshot2](screenshots/screen02.png)
+![screenshot2](screenshots/screen03.png)
