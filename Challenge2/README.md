@@ -37,7 +37,7 @@ My bonus:
 - on cell added accessoryType ".checkmark" to mark when the item was bought
 - implemented save and load items with UserDefaults
 
-![screenshot1](screenshots/screen01.png)
-![screenshot2](screenshots/screen02.png)
-![screenshot3](screenshots/screen03.png)
-![screenshot4](screenshots/screen04.png)
+![screenshot1](screenshots/screen01.png =50x50)
+![screenshot2](screenshots/screen02.png =50x50)
+![screenshot3](screenshots/screen03.png =50x50)
+![screenshot4](screenshots/screen04.png =50x50)
