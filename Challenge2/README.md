@@ -37,10 +37,10 @@ My bonus:
 - on cell added accessoryType ".checkmark" to mark when the item was bought
 - implemented save and load items with UserDefaults
 
-<img src="screenshots/screen01.png" width="48" height="50"> 
-<img src="screenshots/screen02.png" width="48" height="50"> 
-<img src="screenshots/screen03.png" width="48" height="50"> 
-<img src="screenshots/screen04.png" width="48" height="50"> 
+<img src="screenshots/screen01.png" width="1500" height="1500"> 
+<img src="screenshots/screen02.png" width="1500" height="1500"> 
+<img src="screenshots/screen03.png" width="1500" height="1500"> 
+<img src="screenshots/screen04.png" width="1500" height="1500"> 
 
 ![screenshot1](screenshots/screen01.png =50x50)
 ![screenshot2](screenshots/screen02.png =50x50)
