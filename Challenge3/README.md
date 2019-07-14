@@ -56,3 +56,19 @@ print(promptWord)
 ```
 
 ## Screenshots
+
+My bonus:
+- added Start page
+- loading words from JSON file
+- added hint for the looking word
+- implemented Info and Settings page
+- in Settings possibility to change word language between English and Croatian
+- in Settings add an option to on/off "show hint" for word
+
+![screenshot1](screenshots/screen01.png)
+![screenshot2](screenshots/screen02.png)
+![screenshot3](screenshots/screen03.png)
+![screenshot4](screenshots/screen04.png)
+![screenshot5](screenshots/screen05.png)
+![screenshot6](screenshots/screen06.png)
+![screenshot7](screenshots/screen07.png)
