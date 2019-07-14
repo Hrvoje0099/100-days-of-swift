@@ -1,0 +1,72 @@
+[
+    {
+        "hr": {
+            "word": "zrakoplov",
+            "hint": "prijevozno sredstvo"
+        },
+        "en": {
+            "word": "airplane",
+            "hint": "means of transport"
+        }
+    },
+    {
+        "hr": {
+            "word": "traktor",
+            "hint": "za obradu zemlje"
+        },
+        "en": {
+            "word": "tractor",
+            "hint": "for soil treatment"
+        }
+    },
+    {
+        "hr": {
+            "word": "papir",
+            "hint": "pisanje"
+        },
+        "en": {
+            "word": "paper",
+            "hint": "writing"
+        }
+    },
+    {
+        "hr": {
+            "word": "baterija",
+            "hint": "izvor energije"
+        },
+        "en": {
+            "word": "battery",
+            "hint": "energy source"
+        }
+    },
+    {
+        "hr": {
+            "word": "kalendar",
+            "hint": "dan, godina, mjesec"
+        },
+        "en": {
+            "word": "calendar",
+            "hint": "day, month, year"
+        }
+    },
+    {
+        "hr": {
+            "word": "jastuk",
+            "hint": "za odmor"
+        },
+        "en": {
+            "word": "pillow",
+            "hint": "for rest"
+        }
+    },
+    {
+        "hr": {
+            "word": "vrata",
+            "hint": "ulaz/izlaz"
+        },
+        "en": {
+            "word": "door",
+            "hint": "in/out"
+        }
+    }
+]
