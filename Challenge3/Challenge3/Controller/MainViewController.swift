@@ -111,9 +111,9 @@ class MainViewController: UIViewController {
     fileprivate func addLettersRow(startPosition: Int, numberOfLettersInRow: Int, stackView: UIStackView) {
         for letter in 0..<numberOfLettersInRow {
             let letterButton = UIButton(type: .system)
-            letterButton.tintColor = Constants.myBlue
+            letterButton.tintColor = Constants.MY_BLUE
             letterButton.titleLabel?.font = UIFont.init(name: "Marker Felt", size: 30)
-            letterButton.setTitle(Constants.letters[startPosition + letter], for: .normal)
+            letterButton.setTitle(Constants.LETTERS[startPosition + letter], for: .normal)
             letterButton.contentHorizontalAlignment = .center
             letterButton.contentVerticalAlignment = .center
             letterButton.addTarget(self, action: #selector(letterButtonTapped), for: .touchUpInside)
@@ -170,7 +170,7 @@ class MainViewController: UIViewController {
     
     fileprivate func setupNavigationBar() {
         let font = UIFont.systemFont(ofSize: 26)
-        let color = Constants.myBlue
+        let color = Constants.MY_BLUE
         let attributes = [NSAttributedString.Key.font : font, NSAttributedString.Key.foregroundColor : color]
         
         let infoButton = UIButton(type: .infoLight)
@@ -270,16 +270,14 @@ class MainViewController: UIViewController {
     }
     
     fileprivate func markRightLetter(_ tappedLetter: String, _ letterButton: UIButton) {
-        for (index, char) in hiddenWord.enumerated() {
-            if String(char) == tappedLetter {
-                let myIndex = index * 2 //multiply with 2 because the space between letters - each space increase index of letter multiplied by 2
-                
-                let firstPartUpToTappedLetter = answerTextfield.text!.prefix(myIndex)
-                let secondPartAfterTappedLetter = answerTextfield.text!.dropFirst(myIndex+1) // +1 to make place for tapped letter
-                
-                answerTextfield.text? = firstPartUpToTappedLetter + tappedLetter + secondPartAfterTappedLetter
-                score += 1
-            }
+        for (index, char) in hiddenWord.enumerated() where String(char) == tappedLetter {
+            let myIndex = index * 2 //multiply with 2 because the space between letters - each space increase index of letter multiplied by 2
+            
+            let firstPartUpToTappedLetter = answerTextfield.text!.prefix(myIndex)
+            let secondPartAfterTappedLetter = answerTextfield.text!.dropFirst(myIndex+1) // +1 to make place for tapped letter
+            
+            answerTextfield.text? = firstPartUpToTappedLetter + tappedLetter + secondPartAfterTappedLetter
+            score += 1
         }
         letterButton.backgroundColor = .green
     }

@@ -34,7 +34,7 @@ class InfoViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = Constants.myBlue
+        view.backgroundColor = Constants.MY_BLUE
         
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
