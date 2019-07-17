@@ -16,7 +16,7 @@ class SettingsViewController: UITableViewController {
     var settingsType: SettingsOptions?
     var data: [String]?
     
-    //MARK: - INIT
+    // MARK: - INIT
     
     override func viewDidLoad() {
         super.viewDidLoad()

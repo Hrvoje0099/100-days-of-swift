@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    //MARK: - INIT
+    // MARK: - INIT
     
     override func loadView() {
         view = UIView()
@@ -111,7 +111,7 @@ class MainViewController: UIViewController {
     fileprivate func addLettersRow(startPosition: Int, numberOfLettersInRow: Int, stackView: UIStackView) {
         for letter in 0..<numberOfLettersInRow {
             let letterButton = UIButton(type: .system)
-            letterButton.tintColor = Constants.MY_BLUE
+            letterButton.tintColor = Constants.BLUE
             letterButton.titleLabel?.font = UIFont.init(name: "Marker Felt", size: 30)
             letterButton.setTitle(Constants.LETTERS[startPosition + letter], for: .normal)
             letterButton.contentHorizontalAlignment = .center
@@ -156,7 +156,7 @@ class MainViewController: UIViewController {
         ])
     }
     
-    //MARK: - VIEW METHODS
+    // MARK: - VIEW METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,7 +170,7 @@ class MainViewController: UIViewController {
     
     fileprivate func setupNavigationBar() {
         let font = UIFont.systemFont(ofSize: 26)
-        let color = Constants.MY_BLUE
+        let color = Constants.BLUE
         let attributes = [NSAttributedString.Key.font : font, NSAttributedString.Key.foregroundColor : color]
         
         let infoButton = UIButton(type: .infoLight)
@@ -196,7 +196,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    //MARK: - JSON METHODS
+    // MARK: - JSON METHODS
     
     fileprivate func getWordsFromJSON() {
         if let path = Bundle.main.path(forResource: "words", ofType: "json") {
@@ -219,7 +219,7 @@ class MainViewController: UIViewController {
         defaults.setLanguageWordsAndHints(language: WordLanguages.English.description, value: engWordsAndHints)
     }
     
-    //MARK: - SELECTORS
+    // MARK: - SELECTORS
     
     @objc fileprivate func startNewGame() {
         numberOfMissing = 0
@@ -251,11 +251,11 @@ class MainViewController: UIViewController {
     }
     
     @objc func settingsTapped() {
-        let vc = InfoViewController(style: .grouped)
-        navigationController?.pushViewController(vc, animated: true)
+        let infoVC = InfoViewController(style: .grouped)
+        navigationController?.pushViewController(infoVC, animated: true)
     }
     
-    //MARK: - GAME METHODS
+    // MARK: - GAME METHODS
     
     fileprivate func createHiddenWord(from activeWordsAndHints: [Details]) {
         guard let randomWord = activeWordsAndHints.randomElement() else { return }
@@ -302,7 +302,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    //MARK: - SETTINGS METHODS
+    // MARK: - SETTINGS METHODS
     
     fileprivate func checkIsLanguageChanged() {
         //check is language changed in settings and if it's start new game
@@ -317,7 +317,7 @@ class MainViewController: UIViewController {
         hintLabel.isHidden = savedUseShowHint ? false : true
     }
     
-    //MARK: - HELPER FUNCTIONS
+    // MARK: - HELPER FUNCTIONS
     
     fileprivate func disableAndAppendInTappedButtons(_ letterButton: UIButton) {
         letterButton.isUserInteractionEnabled = false

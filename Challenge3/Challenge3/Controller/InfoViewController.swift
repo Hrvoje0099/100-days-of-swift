@@ -13,7 +13,7 @@ private let reuseIdentifier = "InfoCell"
 class InfoViewController: UITableViewController {
     var userInfoHeader: UserInfoHeader!
     
-    //MARK: - INIT
+    // MARK: - INIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +30,11 @@ class InfoViewController: UITableViewController {
         //tableView.tableFooterView = UIView()
     }
     
-    //MARK: - TABLEVIEW METHODS
+    // MARK: - TABLEVIEW METHODS
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = Constants.MY_BLUE
+        view.backgroundColor = Constants.BLUE
         
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -91,28 +91,28 @@ class InfoViewController: UITableViewController {
             guard let settingsOptions = SettingsOptions(rawValue: indexPath.row) else { return }
             switch settingsOptions {
             case .wordLanguage:
-                let vc = SettingsViewController(style: .grouped)
-                vc.settingsType = SettingsOptions.wordLanguage
-                vc.title = "Word Language"
-                vc.data = WordLanguages.allCases.map { $0.description }
-                self.navigationController?.pushViewController(vc, animated: true)
+                let settingsVC = SettingsViewController(style: .grouped)
+                settingsVC.settingsType = SettingsOptions.wordLanguage
+                settingsVC.title = "Word Language"
+                settingsVC.data = WordLanguages.allCases.map { $0.description }
+                self.navigationController?.pushViewController(settingsVC, animated: true)
                 
             case .listOfAllWords:
-                let vc = SettingsViewController()
-                vc.settingsType = SettingsOptions.listOfAllWords
-                vc.title = "List of Words and Hints"
+                let settingsVC = SettingsViewController()
+                settingsVC.settingsType = SettingsOptions.listOfAllWords
+                settingsVC.title = "List of Words and Hints"
                 
                 let activeWordsAndHints = defaults.getLanguageWordsAndHints(language: defaults.getWordLanguage())
-                vc.data = getJoinedWordAndHintInArray(languageWordsAndHints: activeWordsAndHints)
+                settingsVC.data = getJoinedWordAndHintInArray(languageWordsAndHints: activeWordsAndHints)
                 
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.pushViewController(settingsVC, animated: true)
             }
         case .Advanced:
             print(AdvancedOptions(rawValue: indexPath.row)!.description)
         }
     }
     
-    //MARK: - HELPER FUNCTIONS
+    // MARK: - HELPER FUNCTIONS
     
     fileprivate func getJoinedWordAndHintInArray(languageWordsAndHints: [Details]) -> [String] {
         return languageWordsAndHints.map({ $0.word + "-(\($0.hint))" })

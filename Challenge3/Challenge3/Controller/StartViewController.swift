@@ -12,7 +12,7 @@ class StartViewController: UIViewController {
     var titleLabel: UILabel!
     var startButton: UIButton!
     
-    //MARK: - INIT
+    // MARK: - INIT
     
     override func loadView() {
         view = UIView()
@@ -36,7 +36,7 @@ class StartViewController: UIViewController {
         startButton.layer.borderWidth = 1
         startButton.titleLabel?.font = UIFont.init(name: "Marker Felt", size: 26)
         startButton.tintColor = .black
-        startButton.backgroundColor = Constants.MY_BLUE
+        startButton.backgroundColor = Constants.BLUE
         startButton.layer.cornerRadius = 5
         startButton.addTarget(self, action: #selector(startTapped), for: .touchUpInside)
         view.addSubview(startButton)
@@ -58,7 +58,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    //MARK: - SELECTORS
+    // MARK: - SELECTORS
     
     @objc func startTapped() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
