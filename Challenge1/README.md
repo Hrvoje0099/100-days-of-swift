@@ -33,3 +33,7 @@ Bonus tip: try setting the ```imageView``` property of the table view cell. Yes,
 
 ![screenshot1](screenshots/screen01.png)
 ![screenshot2](screenshots/screen02.png)
+
+<p align="center">
+<img src="screenshots/screen01.png" width="230"  title="Challenge 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen02.png" width="230" title="Challenge 1">
+</p>
