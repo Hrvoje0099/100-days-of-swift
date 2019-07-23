@@ -22,10 +22,13 @@
 		EE4AA27522C227120029F541 /* Hangman-1.png in Resources */ = {isa = PBXBuildFile; fileRef = EE4AA26E22C227120029F541 /* Hangman-1.png */; };
 		EE4AA27622C227120029F541 /* Hangman-0.png in Resources */ = {isa = PBXBuildFile; fileRef = EE4AA26F22C227120029F541 /* Hangman-0.png */; };
 		EE65951322CE633600122B68 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE65951222CE633600122B68 /* UserDefaults.swift */; };
+		EEA3E5AF22E4F7A100705DAC /* WordSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA3E5AE22E4F7A100705DAC /* WordSections.swift */; };
+		EEA3E5B122E4FB4F00705DAC /* NewWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA3E5B022E4FB4F00705DAC /* NewWordCell.swift */; };
+		EEA3E5B322E4FD7B00705DAC /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA3E5B222E4FD7B00705DAC /* WordViewController.swift */; };
 		EEC4A8D722C7930D00B69031 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = EEC4A8D622C7930D00B69031 /* words.json */; };
 		EEDB021D22C9371A00B8141A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDB021C22C9371A00B8141A /* InfoViewController.swift */; };
 		EEE7A4A222CD22110016A760 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7A4A122CD22110016A760 /* InfoCell.swift */; };
-		EEE7A4A422CD22AA0016A760 /* Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7A4A322CD22AA0016A760 /* Sections.swift */; };
+		EEE7A4A422CD22AA0016A760 /* InfoSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7A4A322CD22AA0016A760 /* InfoSections.swift */; };
 		EEEABCBC22C0115500C454C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEABCBB22C0115500C454C1 /* AppDelegate.swift */; };
 		EEEABCBE22C0115500C454C1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEABCBD22C0115500C454C1 /* MainViewController.swift */; };
 		EEEABCC122C0115500C454C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEABCBF22C0115500C454C1 /* Main.storyboard */; };
@@ -49,10 +52,13 @@
 		EE4AA26E22C227120029F541 /* Hangman-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-1.png"; sourceTree = "<group>"; };
 		EE4AA26F22C227120029F541 /* Hangman-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-0.png"; sourceTree = "<group>"; };
 		EE65951222CE633600122B68 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		EEA3E5AE22E4F7A100705DAC /* WordSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSections.swift; sourceTree = "<group>"; };
+		EEA3E5B022E4FB4F00705DAC /* NewWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordCell.swift; sourceTree = "<group>"; };
+		EEA3E5B222E4FD7B00705DAC /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		EEC4A8D622C7930D00B69031 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 		EEDB021C22C9371A00B8141A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EEE7A4A122CD22110016A760 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
-		EEE7A4A322CD22AA0016A760 /* Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sections.swift; sourceTree = "<group>"; };
+		EEE7A4A322CD22AA0016A760 /* InfoSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSections.swift; sourceTree = "<group>"; };
 		EEEABCB822C0115500C454C1 /* Challenge3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEEABCBB22C0115500C454C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEEABCBD22C0115500C454C1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				EE10AFAE22D2712E00934ED4 /* Constants.swift */,
-				EEE7A4A322CD22AA0016A760 /* Sections.swift */,
+				EEE7A4A322CD22AA0016A760 /* InfoSections.swift */,
+				EEA3E5AE22E4F7A100705DAC /* WordSections.swift */,
 				EE10AFB022D27B8800934ED4 /* Word.swift */,
 			);
 			path = Model;
@@ -105,6 +112,7 @@
 				EE2B0BF622CBB8EB00AD49F6 /* UserInfoHeader.swift */,
 				EEE7A4A122CD22110016A760 /* InfoCell.swift */,
 				EE1012CC22D3B1BB0016284F /* SettingsCell.swift */,
+				EEA3E5B022E4FB4F00705DAC /* NewWordCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +124,7 @@
 				EEEABCBD22C0115500C454C1 /* MainViewController.swift */,
 				EEDB021C22C9371A00B8141A /* InfoViewController.swift */,
 				EE2B0BFB22CBBB1700AD49F6 /* SettingsViewController.swift */,
+				EEA3E5B222E4FD7B00705DAC /* WordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -250,15 +259,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEEABCBE22C0115500C454C1 /* MainViewController.swift in Sources */,
-				EEE7A4A422CD22AA0016A760 /* Sections.swift in Sources */,
+				EEE7A4A422CD22AA0016A760 /* InfoSections.swift in Sources */,
+				EEA3E5B322E4FD7B00705DAC /* WordViewController.swift in Sources */,
 				EE2B0BF722CBB8EB00AD49F6 /* UserInfoHeader.swift in Sources */,
 				EEEABCBC22C0115500C454C1 /* AppDelegate.swift in Sources */,
+				EEA3E5B122E4FB4F00705DAC /* NewWordCell.swift in Sources */,
 				EE65951322CE633600122B68 /* UserDefaults.swift in Sources */,
 				EE0005B122D911690037DB62 /* StartViewController.swift in Sources */,
 				EE1012CD22D3B1BB0016284F /* SettingsCell.swift in Sources */,
 				EE2B0BFC22CBBB1700AD49F6 /* SettingsViewController.swift in Sources */,
 				EEE7A4A222CD22110016A760 /* InfoCell.swift in Sources */,
 				EE10AFB122D27B8800934ED4 /* Word.swift in Sources */,
+				EEA3E5AF22E4F7A100705DAC /* WordSections.swift in Sources */,
 				EEDB021D22C9371A00B8141A /* InfoViewController.swift in Sources */,
 				EE10AFAF22D2712E00934ED4 /* Constants.swift in Sources */,
 			);

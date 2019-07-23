@@ -13,13 +13,13 @@ class InfoCell: UITableViewCell {
     
     // MARK: - PROPERTIES
     
-    var sectionType: SectionType? {
+    var infoType: InfoSectionType? {
         didSet {
-            guard let sectionType = sectionType else { return }
-            textLabel?.text = sectionType.description
-            switchControl.isHidden = !sectionType.containsSwitch
-            accessoryType = sectionType.isDisclosureIndicator ? .disclosureIndicator : .none
-            selectionStyle = sectionType.isDisclosureIndicator ? .default : .none
+            guard let infoType = infoType else { return }
+            textLabel?.text = infoType.description
+            switchControl.isHidden = !infoType.containsSwitch
+            accessoryType = infoType.isDisclosureIndicator ? .disclosureIndicator : .none
+            selectionStyle = infoType.isDisclosureIndicator ? .default : .none
         }
     }
     
@@ -52,9 +52,7 @@ class InfoCell: UITableViewCell {
     // MARK: - SELECTORS
     
     @objc func handleSwitchAction(sender: UISwitch) {
-        guard let sectionType = sectionType?.description else { return }
-        print(sectionType)
-        
+        guard let sectionType = infoType?.description else { return }
         if sender.isOn {
             if sectionType == AdvancedOptions.showHint.description { defaults.setUseShowHint(value: true) }
         } else {

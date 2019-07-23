@@ -6,12 +6,12 @@
 //  Copyright © 2019 Hrvoje Vuković. All rights reserved.
 //
 
-protocol SectionType: CustomStringConvertible {
+protocol InfoSectionType: CustomStringConvertible {
     var containsSwitch: Bool { get }
     var isDisclosureIndicator: Bool { get }
 }
 
-enum InfoSection: Int, CaseIterable, CustomStringConvertible {
+enum InfoSection: Int, CaseIterable {
     case Settings
     case Advanced
     
@@ -23,7 +23,7 @@ enum InfoSection: Int, CaseIterable, CustomStringConvertible {
     }
 }
 
-enum SettingsOptions: Int, CaseIterable, SectionType {
+enum SettingsOptions: Int, CaseIterable, InfoSectionType {
     case wordLanguage
     case listOfAllWords
     
@@ -53,19 +53,7 @@ enum SettingsOptions: Int, CaseIterable, SectionType {
     }
 }
 
-enum WordLanguages: Int, CaseIterable {
-    case Croatian
-    case English
-    
-    var description: String {
-        switch self {
-        case .Croatian: return "Croatian"
-        case .English: return "English"
-        }
-    }
-}
-
-enum AdvancedOptions: Int, CaseIterable, SectionType {
+enum AdvancedOptions: Int, CaseIterable, InfoSectionType {
     case showHint
     
     var containsSwitch: Bool { return true }

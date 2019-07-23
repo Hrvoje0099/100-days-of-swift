@@ -11,8 +11,18 @@ import Foundation
 public extension UserDefaults {
     
     enum UserDefaultsKeys: String {
+        case appLaunch
+        case allWords
         case wordLanguage
         case useShowHint
+    }
+    
+    func isAppAlreadyLaunchedOnce() -> Bool {
+        return bool(forKey: UserDefaultsKeys.appLaunch.rawValue)
+    }
+    
+    func setIsAppAlreadyLaunchedOnce(value: Bool) {
+        set(value, forKey: UserDefaultsKeys.appLaunch.rawValue)
     }
     
     func getWordLanguage() -> String {
@@ -31,13 +41,31 @@ public extension UserDefaults {
         set(value, forKey: UserDefaultsKeys.useShowHint.rawValue)
     }
     
+    func getAllWords() -> [Word] {
+        if let data = value(forKey: UserDefaultsKeys.allWords.rawValue) as? Data {
+            if let decodedData = try? JSONDecoder().decode([Word].self, from: data) {
+                return decodedData
+            }
+        }
+        return [Word]()
+    }
+    
+    func setAllWords(value: [Word]) {
+        set(try? JSONEncoder().encode(value), forKey: UserDefaultsKeys.allWords.rawValue)
+    }
+    
     func getLanguageWordsAndHints(language key: String) -> [Details] {
-        guard let data = UserDefaults.standard.value(forKey: key) as? Data else { return [Details]() }
-        return try! PropertyListDecoder().decode(Array<Details>.self, from: data)
+        if key == WordLanguages.Croatian.description {
+            return getAllWords().map({ $0.hr })
+        } else if key == WordLanguages.English.description {
+            return getAllWords().map({ $0.en })
+        }
+        
+        return [Details]()
     }
     
     func setLanguageWordsAndHints(language key: String, value: [Details]) {
-        set(try? PropertyListEncoder().encode(value), forKey: key)
+        set(try? JSONEncoder().encode(value), forKey: key)
     }
     
 }

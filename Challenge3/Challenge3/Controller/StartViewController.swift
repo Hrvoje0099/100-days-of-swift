@@ -51,7 +51,7 @@ class StartViewController: UIViewController {
             startButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 150),
             startButton.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.5),
             startButton.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor)
-            ])
+        ])
     }
 
     override func viewDidLoad() {
@@ -63,8 +63,8 @@ class StartViewController: UIViewController {
     @objc func startTapped() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        UIView.transition(with: appDelegate.window!, duration: 0.3, options: .transitionFlipFromTop, animations: {
-            appDelegate.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainNavigation") as! UINavigationController
+        UIView.transition(with: appDelegate.window!, duration: 0.3, options: .transitionFlipFromTop, animations: { [weak appDelegate] in
+            appDelegate?.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainNavigation") as! UINavigationController
         })
         
     }

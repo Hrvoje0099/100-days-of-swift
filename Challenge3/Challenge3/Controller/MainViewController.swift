@@ -166,6 +166,8 @@ class MainViewController: UIViewController {
         setupNavigationBar()
         getWordsFromJSON()
         startNewGame()
+        
+        printSizeOfUserDefaults()
     }
     
     fileprivate func setupNavigationBar() {
@@ -186,6 +188,7 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         checkIsLanguageChanged()
         checkIsUseShowHintChanged()
+        checkIsActiveWordDeleted()
     }
     
     fileprivate func restoreViewAndLetterButtons() {
@@ -203,7 +206,7 @@ class MainViewController: UIViewController {
             do {
                 let jsonData = try Data(contentsOf: URL(fileURLWithPath: path))
                 if let jsonResult = try? JSONDecoder().decode([Word].self, from: jsonData) {
-                    saveWordsAndHints(from: jsonResult)
+                    if !isAppAlreadyLaunchedOnce() { saveWordsAndHints(from: jsonResult) }
                 }
             } catch {
                 print("Error with parsing JSON: \(error)")
@@ -212,6 +215,9 @@ class MainViewController: UIViewController {
     }
     
     fileprivate func saveWordsAndHints(from jsonResult: [Word]) {
+        let allWords = jsonResult.map({ $0.self })
+        defaults.setAllWords(value: allWords)
+        
         let croWordsAndHints = jsonResult.map({ $0.hr })
         defaults.setLanguageWordsAndHints(language: WordLanguages.Croatian.description, value: croWordsAndHints)
         
@@ -265,7 +271,7 @@ class MainViewController: UIViewController {
             createHiddenWord(from: activeWordsAndHints)
         } else {
             lastHiddenWord = hiddenWord
-            hintLabel.text = randomWord.hint
+            hintLabel.text = randomWord.hint.lowercased()
         }
     }
     
@@ -276,7 +282,7 @@ class MainViewController: UIViewController {
             let firstPartUpToTappedLetter = answerTextfield.text!.prefix(myIndex)
             let secondPartAfterTappedLetter = answerTextfield.text!.dropFirst(myIndex+1) // +1 to make place for tapped letter
             
-            answerTextfield.text? = firstPartUpToTappedLetter + tappedLetter + secondPartAfterTappedLetter
+            answerTextfield.text = firstPartUpToTappedLetter + tappedLetter + secondPartAfterTappedLetter
             score += 1
         }
         letterButton.backgroundColor = .green
@@ -317,7 +323,31 @@ class MainViewController: UIViewController {
         hintLabel.isHidden = savedUseShowHint ? false : true
     }
     
+    fileprivate func checkIsActiveWordDeleted() {
+        let languageWordsAndHints = defaults.getLanguageWordsAndHints(language: wordsLanguage)
+        if !languageWordsAndHints.contains(where: { languageWords in languageWords.word.uppercased() == hiddenWord }) {
+            startNewGame()
+        }
+    }
+    
     // MARK: - HELPER FUNCTIONS
+    
+    fileprivate func isAppAlreadyLaunchedOnce() -> Bool {
+        if defaults.isAppAlreadyLaunchedOnce() {
+            print("App already launched")
+            return true
+        } else {
+            defaults.setIsAppAlreadyLaunchedOnce(value: true)
+            print("App launched first time")
+            return false
+        }
+    }
+    
+    fileprivate func getDirectoryPath() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
     
     fileprivate func disableAndAppendInTappedButtons(_ letterButton: UIButton) {
         letterButton.isUserInteractionEnabled = false
@@ -340,12 +370,26 @@ class MainViewController: UIViewController {
         }))
     }
     
+    fileprivate func printSizeOfUserDefaults() {
+        guard let libraryDir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first else { return }
+        guard let bundleIdentifier = Bundle.main.bundleIdentifier else { return }
+        
+        let filepath = "\(libraryDir)/Preferences/\(bundleIdentifier).plist"
+        let filesize = try? FileManager.default.attributesOfItem(atPath: filepath)
+        let optionSize = filesize?[FileAttributeKey.size] as? Int
+        guard let size = optionSize else { return }
+        
+        print("User defaults size: \(size) byte")
+        print("User defaults size: \(Double(Double(size) / 1000)) kb")
+    }
+    
     //if we need reset defaults for testing
-    func resetDefaults() {
+    fileprivate func resetDefaults() {
         let dictionary = defaults.dictionaryRepresentation()
         dictionary.keys.forEach { key in
             defaults.removeObject(forKey: key)
         }
+        print("User Defaults reseted!")
     }
     
 }

@@ -24,6 +24,8 @@ class InfoViewController: UITableViewController {
         tableView.rowHeight = 60
         tableView.sectionFooterHeight = 0
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetApp))
+        
         let frame = CGRect(x: 0, y: 88, width: view.frame.width, height: 100)
         userInfoHeader = UserInfoHeader(frame: frame)
         tableView.tableHeaderView = userInfoHeader
@@ -74,9 +76,9 @@ class InfoViewController: UITableViewController {
         
         switch section {
         case .Settings:
-            cell.sectionType = SettingsOptions(rawValue: indexPath.row)
+            cell.infoType = SettingsOptions(rawValue: indexPath.row)
         case .Advanced:
-            cell.sectionType = AdvancedOptions(rawValue: indexPath.row)
+            cell.infoType = AdvancedOptions(rawValue: indexPath.row)
         }
         
         return cell
@@ -103,18 +105,39 @@ class InfoViewController: UITableViewController {
                 settingsVC.title = "List of Words and Hints"
                 
                 let activeWordsAndHints = defaults.getLanguageWordsAndHints(language: defaults.getWordLanguage())
-                settingsVC.data = getJoinedWordAndHintInArray(languageWordsAndHints: activeWordsAndHints)
+                settingsVC.data = joinedWordAndHintInArray(languageWordsAndHints: activeWordsAndHints)
                 
                 self.navigationController?.pushViewController(settingsVC, animated: true)
             }
         case .Advanced:
-            print(AdvancedOptions(rawValue: indexPath.row)!.description)
+            print("Advanced")
         }
+    }
+    
+    // MARK: - SELECTORS
+    
+    @objc func resetApp() {
+        let ac = UIAlertController(title: "Reset all settings and changes!", message: "Are you sure?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            let defaults = UserDefaults.standard
+            let dictionary = defaults.dictionaryRepresentation()
+            dictionary.keys.forEach { key in
+                defaults.removeObject(forKey: key)
+            }
+            print("User Defaults reseted!")
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            UIView.transition(with: appDelegate.window!, duration: 0.3, options: .transitionFlipFromTop, animations: { [weak appDelegate] in
+                appDelegate?.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Start")
+            })
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
     }
     
     // MARK: - HELPER FUNCTIONS
     
-    fileprivate func getJoinedWordAndHintInArray(languageWordsAndHints: [Details]) -> [String] {
+    fileprivate func joinedWordAndHintInArray(languageWordsAndHints: [Details]) -> [String] {
         return languageWordsAndHints.map({ $0.word + "-(\($0.hint))" })
     }
     
