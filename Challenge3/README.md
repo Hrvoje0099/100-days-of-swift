@@ -65,11 +65,12 @@ My bonus:
 - in Settings possibility to change word language between English and Croatian
 - in Settings add an option to on/off "show hint" for word
 
-![screenshot1](screenshots/screen01.png)
-![screenshot2](screenshots/screen02.png)
-![screenshot3](screenshots/screen03.png)
-![screenshot4](screenshots/screen04.png)
-![screenshot5](screenshots/screen05.png)
-![screenshot6](screenshots/screen06.png)
-![screenshot7](screenshots/screen07.png)
-![screenshot8](screenshots/screen08.png)
+<p align="center">
+<img src="screenshots/screen01.png" width="250"  title="Challenge 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen02.png" width="250" title="Challenge 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen03.png" width="250" title="Challenge 3">
+</p>
+<p align="center">
+<img src="screenshots/screen04.png" width="250" title="Challenge 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen05.png" width="250" title="Challenge 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen06.png" width="250" title="Challenge 3">
+</p>
+<p align="center">
+<img src="screenshots/screen07.png" width="250" title="Challenge 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen08.png" width="250" title="Challenge 3">
+</p>
