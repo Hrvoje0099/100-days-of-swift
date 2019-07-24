@@ -24,7 +24,6 @@ Bonus:
 
 ## Screenshots
 
-![screenshot1](screenshots/screen01.png)
-![screenshot2](screenshots/screen02.png)
-![screenshot3](screenshots/screen03.png)
-![screenshot4](screenshots/screen04.png)
+<p align="center">
+<img src="screenshots/screen01.png" width="250"  title="Challenge 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen02.png" width="250" title="Challenge 4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen03.png" width="250" title="Challenge 4">
+</p>
