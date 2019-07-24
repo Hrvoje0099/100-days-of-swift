@@ -38,5 +38,8 @@ My bonus:
 - implemented save and load items with UserDefaults
 
 <p align="center">
-<img src="screenshots/screen01.png" width="250"  title="Challenge 2">&nbsp;&nbsp;&nbsp;<img src="screenshots/screen02.png" width="250" title="Challenge 2">&nbsp;&nbsp;&nbsp;<img src="screenshots/screen03.png" width="250" title="Challenge 2">&nbsp;&nbsp;&nbsp;<img src="screenshots/screen04.png" width="250" title="Challenge 2">
+<img src="screenshots/screen01.png" width="250"  title="Challenge 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen02.png" width="250" title="Challenge 2">
+</p>
+<p align="center">
+<img src="screenshots/screen03.png" width="250" title="Challenge 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen04.png" width="250" title="Challenge 2">
 </p>
