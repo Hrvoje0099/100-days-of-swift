@@ -16,7 +16,6 @@ class NewWordCell: UITableViewCell {
         didSet {
             guard let wordType = wordType else { return }
             textLabel?.text = wordType.description
-            //textLabel?.layer.borderWidth = 1
             textField.placeholder = wordType.placeholder
             textField.isHidden = !wordType.containsTextfield
             selectionStyle = .none
@@ -30,7 +29,6 @@ class NewWordCell: UITableViewCell {
         textField.textAlignment = .left
         textField.isUserInteractionEnabled = true
         textField.addTarget(self, action: #selector(checkTextfield), for: .editingChanged)
-        //textField.layer.borderWidth = 1
         return textField
     }()
 
@@ -43,8 +41,7 @@ class NewWordCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             textField.centerYAnchor.constraint(equalTo: centerYAnchor),
-            //textField.leftAnchor.constraint(equalTo: textLabel!.rightAnchor, constant: -12),
-            textField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
+            textField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
             textField.rightAnchor.constraint(equalTo: rightAnchor, constant: -12)
         ])
     }
@@ -57,16 +54,14 @@ class NewWordCell: UITableViewCell {
         guard let sectionType = wordType?.description else { return }
         if sectionType == NewWord.word.description {
             if sender.text!.checkValidationOfWord {
-                //textField.text = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 textField.text = String.init(sender.text!.dropLast()).replacingOccurrences(of: " ", with: "")
             }
         } else if sectionType == NewWord.hint.description {
-            if sender.text!.hasPrefix(" ") /*|| sender.text!.hasSuffix(" ")*/ {
+            if sender.text!.hasPrefix(" ") {
                 textField.text = sender.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             }
         }
     }
-    //sender.text!.replacingOccurrences(of: " ", with: "")
 
 }
 
@@ -78,15 +73,4 @@ extension String {
         return testString.evaluate(with: self)
     }
     
-    /*var containsWhitespacesAndNewLines : Bool {
-        print("containsWhitespacesAndNewLines")
-        print((self.rangeOfCharacter(from: .whitespacesAndNewlines) != nil))
-        return(self.rangeOfCharacter(from: .whitespacesAndNewlines) != nil)
-    }
-    
-    var containsDecimalDigits : Bool {
-        print("containsDecimalDigits")
-        print((self.rangeOfCharacter(from: .decimalDigits) != nil))
-        return(self.rangeOfCharacter(from: .decimalDigits) != nil)
-    }*/
 }

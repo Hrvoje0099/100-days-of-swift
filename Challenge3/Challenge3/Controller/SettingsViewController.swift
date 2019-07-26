@@ -13,7 +13,7 @@ private let reuseIdentifier = "SettingsCell"
 class SettingsViewController: UITableViewController {
     let defaults = UserDefaults.standard
     
-    var settingsType: SettingsOptions?
+    var settingsType: SettingsOptions!
     var data: [String]?
     
     // MARK: - INIT
@@ -21,10 +21,8 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let settingsType = settingsType {
-            if settingsType == .listOfAllWords {
-                navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewWord))
-            }
+        if settingsType == .listOfAllWords {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewWord))
         }
         
         tableView.register(SettingsCell.self, forCellReuseIdentifier: reuseIdentifier)
@@ -42,16 +40,14 @@ class SettingsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! SettingsCell
         
         if let cellData = data?[indexPath.row] {
-            if let settingsType = settingsType {
-                switch settingsType {
-                case .wordLanguage:
-                    cell.labelLeft.text = cellData
-                    cell.accessoryType = defaults.getWordLanguage() == cellData ? .checkmark : .none
-                case .listOfAllWords:
-                    let cellDataSplited = cellData.split(separator: "-")
-                    cell.labelLeft.text = String(cellDataSplited[0]).lowercased()
-                    cell.labelRight.text = String(cellDataSplited[1]).lowercased()
-                }
+            switch settingsType! {
+            case .wordLanguage:
+                cell.labelLeft.text = cellData
+                cell.accessoryType = defaults.getWordLanguage() == cellData ? .checkmark : .none
+            case .listOfAllWords:
+                let cellDataSplited = cellData.split(separator: "-")
+                cell.labelLeft.text = String(cellDataSplited[0]).lowercased()
+                cell.labelRight.text = String(cellDataSplited[1]).lowercased()
             }
         }
         
@@ -59,31 +55,26 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let settingsType = settingsType {
-            if settingsType == .wordLanguage {
-                if let selectedWordLang = data?[indexPath.row] {
-                    let activeWordLang = defaults.getWordLanguage()
-                
-                    if selectedWordLang != activeWordLang {
-                        defaults.setWordLanguage(value: selectedWordLang)
-                        
-                        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-                        tableView.reloadData()
-                        
-                        navigationController?.popToRootViewController(animated: true)
-                    }
+        if settingsType == .wordLanguage {
+            if let selectedWordLang = data?[indexPath.row] {
+                let activeWordLang = defaults.getWordLanguage()
+            
+                if selectedWordLang != activeWordLang {
+                    defaults.setWordLanguage(value: selectedWordLang)
+                    
+                    tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                    tableView.reloadData()
+                    
+                    navigationController?.popToRootViewController(animated: true)
                 }
             }
-            
         }
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if let settingsType = settingsType {
-            if let dataCount = data?.count {
-                if settingsType == .listOfAllWords && dataCount > 2 {
-                    return .delete
-                }
+        if let dataCount = data?.count {
+            if settingsType == .listOfAllWords && dataCount > 2 {
+                return .delete
             }
         }
         return .none

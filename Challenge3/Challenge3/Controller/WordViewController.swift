@@ -77,7 +77,6 @@ class WordViewController: UITableViewController {
             for row in 0..<numberOfRowsInSection {
                 let indexPath = IndexPath(row: row, section: section)
                 if let cell = tableView.cellForRow(at: indexPath) as? NewWordCell {
-                    //print(cell.textField.text!.trimmingCharacters(in: .whitespacesAndNewlines))
                     let cellText = cell.textField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                     if !checkIsCellEmpty(cellText) { return }
                     newWordParts.append(cellText)
