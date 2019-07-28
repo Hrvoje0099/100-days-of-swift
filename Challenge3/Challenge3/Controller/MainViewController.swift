@@ -111,9 +111,9 @@ class MainViewController: UIViewController {
     fileprivate func addLettersRow(startPosition: Int, numberOfLettersInRow: Int, stackView: UIStackView) {
         for letter in 0..<numberOfLettersInRow {
             let letterButton = UIButton(type: .system)
-            letterButton.tintColor = Constants.BLUE
+            letterButton.tintColor = MY_BLUE
             letterButton.titleLabel?.font = UIFont.init(name: "Marker Felt", size: 30)
-            letterButton.setTitle(Constants.LETTERS[startPosition + letter], for: .normal)
+            letterButton.setTitle(LETTERS[startPosition + letter], for: .normal)
             letterButton.contentHorizontalAlignment = .center
             letterButton.contentVerticalAlignment = .center
             letterButton.addTarget(self, action: #selector(letterButtonTapped), for: .touchUpInside)
@@ -172,7 +172,7 @@ class MainViewController: UIViewController {
     
     fileprivate func setupNavigationBar() {
         let font = UIFont.systemFont(ofSize: 26)
-        let color = Constants.BLUE
+        let color = MY_BLUE
         let attributes = [NSAttributedString.Key.font : font, NSAttributedString.Key.foregroundColor : color]
         
         let infoButton = UIButton(type: .infoLight)

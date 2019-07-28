@@ -30,7 +30,7 @@ class WordViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = Constants.BLUE
+        view.backgroundColor = MY_BLUE
         
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
