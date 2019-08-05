@@ -25,9 +25,9 @@ class InfoCell: UITableViewCell {
     
     lazy var switchControl: UISwitch = {
         let switchControl = UISwitch()
+        switchControl.translatesAutoresizingMaskIntoConstraints = false
         switchControl.isOn = defaults.useShowHint()
         switchControl.onTintColor = MY_BLUE
-        switchControl.translatesAutoresizingMaskIntoConstraints = false
         switchControl.addTarget(self, action: #selector(handleSwitchAction), for: .valueChanged)
         return switchControl
     }()

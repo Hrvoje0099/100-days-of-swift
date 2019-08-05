@@ -65,16 +65,16 @@ class MainViewController: UIViewController {
         view.addSubview(imageView)
         
         answerTextfield = UITextField()
-        answerTextfield.font = UIFont.init(name: "Marker Felt", size: 26)
         answerTextfield.translatesAutoresizingMaskIntoConstraints = false
+        answerTextfield.font = UIFont.init(name: "Marker Felt", size: 26)
         answerTextfield.textAlignment = .center
         answerTextfield.isUserInteractionEnabled = false
         answerTextfield.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         view.addSubview(answerTextfield)
         
         hintLabel = UILabel()
-        hintLabel.font = UIFont.init(name: "Marker Felt", size: 16)
         hintLabel.translatesAutoresizingMaskIntoConstraints = false
+        hintLabel.font = UIFont.init(name: "Marker Felt", size: 16)
         hintLabel.textAlignment = .center
         view.addSubview(hintLabel)
         
