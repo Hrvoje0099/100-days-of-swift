@@ -30,7 +30,7 @@ class WordViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = MY_BLUE
+        view.backgroundColor = Constants.BLUE
         
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -97,12 +97,12 @@ class WordViewController: UITableViewController {
     }
     
     fileprivate func confirmAndSaveToUserDefaults(_ newWord: Word) {
-        let ac = UIAlertController(title: "Save new word?", message: nil, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+        let alertController = UIAlertController(title: "Save new word?", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
             self?.appendNewWordToAllWordsdAndPopToRootVC(newWord)
         }))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(ac, animated: true)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
     }
     
     fileprivate func appendNewWordToAllWordsdAndPopToRootVC(_ newWord: Word) {
@@ -122,9 +122,9 @@ class WordViewController: UITableViewController {
     
     fileprivate func checkIsCellEmpty(_ word: String) -> Bool {
         if word.isEmpty {
-            let ac = UIAlertController(title: "All fields must be filled!", message: nil, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-            present(ac, animated: true)
+            let alertController = UIAlertController(title: "All fields must be filled!", message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(alertController, animated: true)
             return false
         }
         return true

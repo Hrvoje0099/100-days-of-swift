@@ -26,7 +26,7 @@ public extension UserDefaults {
     }
     
     func getWordLanguage() -> String {
-        return string(forKey: UserDefaultsKeys.wordLanguage.rawValue) ?? WordLanguages.Croatian.description
+        return string(forKey: UserDefaultsKeys.wordLanguage.rawValue) ?? WordLanguages.croatian.description
     }
     
     func setWordLanguage(value: String) {
@@ -55,9 +55,9 @@ public extension UserDefaults {
     }
     
     func getLanguageWordsAndHints(language key: String) -> [Details] {
-        if key == WordLanguages.Croatian.description {
+        if key == WordLanguages.croatian.description {
             return getAllWords().map({ $0.hr })
-        } else if key == WordLanguages.English.description {
+        } else if key == WordLanguages.english.description {
             return getAllWords().map({ $0.en })
         }
         

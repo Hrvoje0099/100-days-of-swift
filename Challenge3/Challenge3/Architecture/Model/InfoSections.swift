@@ -12,13 +12,13 @@ protocol InfoSectionType: CustomStringConvertible {
 }
 
 enum InfoSection: Int, CaseIterable {
-    case Settings
-    case Advanced
+    case settings
+    case advanced
     
     var description: String {
         switch self {
-        case .Settings: return "SETTINGS"
-        case .Advanced: return "ADVANCED"
+        case .settings: return "SETTINGS"
+        case .advanced: return "ADVANCED"
         }
     }
 }

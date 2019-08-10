@@ -36,7 +36,7 @@ class InfoViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = MY_BLUE
+        view.backgroundColor = Constants.BLUE
         
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -65,8 +65,8 @@ class InfoViewController: UITableViewController {
         guard let section = InfoSection(rawValue: section) else { return 0 }
         
         switch section {
-        case .Settings: return SettingsOptions.allCases.count
-        case .Advanced: return AdvancedOptions.allCases.count
+        case .settings: return SettingsOptions.allCases.count
+        case .advanced: return AdvancedOptions.allCases.count
         }
     }
     
@@ -75,9 +75,9 @@ class InfoViewController: UITableViewController {
         guard let section = InfoSection(rawValue: indexPath.section) else { return UITableViewCell() }
         
         switch section {
-        case .Settings:
+        case .settings:
             cell.infoType = SettingsOptions(rawValue: indexPath.row)
-        case .Advanced:
+        case .advanced:
             cell.infoType = AdvancedOptions(rawValue: indexPath.row)
         }
         
@@ -89,7 +89,7 @@ class InfoViewController: UITableViewController {
         let defaults = UserDefaults.standard
         
         switch section {
-        case .Settings:
+        case .settings:
             guard let settingsOptions = SettingsOptions(rawValue: indexPath.row) else { return }
             switch settingsOptions {
             case .wordLanguage:
@@ -100,7 +100,7 @@ class InfoViewController: UITableViewController {
                 self.navigationController?.pushViewController(settingsVC, animated: true)
                 
             case .listOfAllWords:
-                let settingsVC = SettingsViewController()
+                let settingsVC = SettingsViewController(style: .grouped)
                 settingsVC.settingsType = SettingsOptions.listOfAllWords
                 settingsVC.title = "List of Words and Hints"
                 
@@ -109,7 +109,7 @@ class InfoViewController: UITableViewController {
                 
                 self.navigationController?.pushViewController(settingsVC, animated: true)
             }
-        case .Advanced:
+        case .advanced:
             print("Advanced")
         }
     }
@@ -117,8 +117,8 @@ class InfoViewController: UITableViewController {
     // MARK: - SELECTORS
     
     @objc func resetApp() {
-        let ac = UIAlertController(title: "Reset all settings and changes!", message: "Are you sure?", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+        let alertController = UIAlertController(title: "Reset all settings and changes!", message: "Are you sure?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             let defaults = UserDefaults.standard
             let dictionary = defaults.dictionaryRepresentation()
             dictionary.keys.forEach { key in
@@ -131,8 +131,8 @@ class InfoViewController: UITableViewController {
                 appDelegate?.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Start")
             })
         }))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(ac, animated: true)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
     }
     
     // MARK: - HELPER FUNCTIONS

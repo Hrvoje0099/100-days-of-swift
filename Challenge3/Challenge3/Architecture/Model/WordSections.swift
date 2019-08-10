@@ -35,13 +35,13 @@ enum NewWord: Int, CaseIterable, WordType {
 }
 
 enum WordLanguages: Int, CaseIterable {
-    case Croatian
-    case English
+    case croatian
+    case english
     
     var description: String {
         switch self {
-        case .Croatian: return "Croatian"
-        case .English: return "English"
+        case .croatian: return "Croatian"
+        case .english: return "English"
         }
     }
 }

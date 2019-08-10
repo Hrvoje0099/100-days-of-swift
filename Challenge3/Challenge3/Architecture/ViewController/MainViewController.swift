@@ -111,9 +111,9 @@ class MainViewController: UIViewController {
     fileprivate func addLettersRow(startPosition: Int, numberOfLettersInRow: Int, stackView: UIStackView) {
         for letter in 0..<numberOfLettersInRow {
             let letterButton = UIButton(type: .system)
-            letterButton.tintColor = MY_BLUE
+            letterButton.tintColor = Constants.BLUE
             letterButton.titleLabel?.font = UIFont.init(name: "Marker Felt", size: 30)
-            letterButton.setTitle(LETTERS[startPosition + letter], for: .normal)
+            letterButton.setTitle(Constants.LETTERS[startPosition + letter], for: .normal)
             letterButton.contentHorizontalAlignment = .center
             letterButton.contentVerticalAlignment = .center
             letterButton.addTarget(self, action: #selector(letterButtonTapped), for: .touchUpInside)
@@ -172,7 +172,7 @@ class MainViewController: UIViewController {
     
     fileprivate func setupNavigationBar() {
         let font = UIFont.systemFont(ofSize: 26)
-        let color = MY_BLUE
+        let color = Constants.BLUE
         let attributes = [NSAttributedString.Key.font : font, NSAttributedString.Key.foregroundColor : color]
         
         let infoButton = UIButton(type: .infoLight)
@@ -219,10 +219,10 @@ class MainViewController: UIViewController {
         defaults.setAllWords(value: allWords)
         
         let croWordsAndHints = jsonResult.map({ $0.hr })
-        defaults.setLanguageWordsAndHints(language: WordLanguages.Croatian.description, value: croWordsAndHints)
+        defaults.setLanguageWordsAndHints(language: WordLanguages.croatian.description, value: croWordsAndHints)
         
         let engWordsAndHints = jsonResult.map({ $0.en })
-        defaults.setLanguageWordsAndHints(language: WordLanguages.English.description, value: engWordsAndHints)
+        defaults.setLanguageWordsAndHints(language: WordLanguages.english.description, value: engWordsAndHints)
     }
     
     // MARK: - SELECTORS
@@ -243,7 +243,7 @@ class MainViewController: UIViewController {
     @objc func letterButtonTapped(_ letterButton: UIButton) {
         guard let tappedLetter = letterButton.titleLabel?.text else { return }
         
-        if(hiddenWord.contains(tappedLetter)) {
+        if hiddenWord.contains(tappedLetter) {
             markRightLetter(tappedLetter, letterButton)
         } else {
             markWrongLetter(letterButton)
@@ -302,7 +302,7 @@ class MainViewController: UIViewController {
     
     fileprivate func checkWholeWord() {
         let wordInTextfield = answerTextfield.text!.replacingOccurrences(of: " ", with: "")
-        if(hiddenWord == wordInTextfield) {
+        if hiddenWord == wordInTextfield {
             score += 10
             return createAlertController(title: "Congratulations!", message: "Start new game?")
         }
@@ -341,12 +341,6 @@ class MainViewController: UIViewController {
             print("App launched first time")
             return false
         }
-    }
-    
-    fileprivate func getDirectoryPath() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
     }
     
     fileprivate func disableAndAppendInTappedButtons(_ letterButton: UIButton) {

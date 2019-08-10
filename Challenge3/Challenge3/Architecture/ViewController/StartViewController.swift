@@ -36,7 +36,7 @@ class StartViewController: UIViewController {
         startButton.layer.borderWidth = 1
         startButton.titleLabel?.font = UIFont.init(name: "Marker Felt", size: 26)
         startButton.tintColor = .black
-        startButton.backgroundColor = MY_BLUE
+        startButton.backgroundColor = Constants.BLUE
         startButton.layer.cornerRadius = 5
         startButton.addTarget(self, action: #selector(startTapped), for: .touchUpInside)
         view.addSubview(startButton)
