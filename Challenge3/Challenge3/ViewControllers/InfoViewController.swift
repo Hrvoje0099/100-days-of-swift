@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "InfoCell"
 
 class InfoViewController: UITableViewController {
-    var userInfoHeader: UserInfoHeader!
+    var userInfoHeader: UserInfoHeaderView!
     
     // MARK: - INIT
     
@@ -27,7 +27,7 @@ class InfoViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetApp))
         
         let frame = CGRect(x: 0, y: 88, width: view.frame.width, height: 100)
-        userInfoHeader = UserInfoHeader(frame: frame)
+        userInfoHeader = UserInfoHeaderView(frame: frame)
         tableView.tableHeaderView = userInfoHeader
         //tableView.tableFooterView = UIView()
     }
